@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  golang_server:
+    image: golang:1.19
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    privileged: true
+    user: root
+    #restart: always
+    tty: true
+    container_name: golang
+    volumes:
+      - ./shared:/go
+      - /etc/localtime:/etc/localtime
